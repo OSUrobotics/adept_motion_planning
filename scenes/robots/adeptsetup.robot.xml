@@ -1,0 +1,24 @@
+<Robot>
+  <Robot file="Adept_Viper_s650.dae"></Robot>
+  <Robot prefix="hand_" file="s-model_articulated.dae"></Robot>
+  <kinbody>
+  	<body name = "hand_palm">
+  		<offsetfrom>Adept_Viper_650_Interface_Plate</offsetfrom>
+  		<translation>0 0 .04</translation>
+  		<rotationaxis>1 0 0 90</rotationaxis>
+  	</body>
+  	<joint type="hinge" enable="false" name="dummy">
+  		<body>Adept_Viper_650_Interface_Plate</body>
+  		<body>hand_palm</body>
+  		<limits>0 0</limits>
+  	</joint>
+  </kinbody>
+  <manipulator name="arm">
+  	<base>Adept_Viper_s650_Link1</base>
+  	<effector>Adept_Viper_650_Interface_Plate</effector>
+  	<joints><!--hand_palm_finger_1_joint--> hand_finger_1_joint_1 hand_finger_1_joint_2 hand_finger_1_joint_3 <!--hand_palm_finger_2_joint--> hand_finger_2_joint_1 hand_finger_2_joint_2 hand_finger_2_joint_3 <!--hand_palm_finger_middle_joint--> hand_finger_middle_joint_1 hand_finger_middle_joint_2 hand_finger_middle_joint_3</joints>
+  	<closingdirection><!--1 1 1--> 1 1 1 1 1 1 1 1 1</closingdirection>
+  	<direction>0 0 1</direction>
+  </manipulator>
+  <!--<jointvalues>0 0 0 0 0 0 0 0 0</jointvalues> -->
+</Robot>
