@@ -19,7 +19,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
-
+find_package(adept_motion_planning REQUIRED COMPONENTS adept_moveit_config)
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -111,6 +111,10 @@ include_directories(
 
 ## Declare a cpp executable
 # add_executable(rave_to_moveit_node src/rave_to_moveit_node.cpp)
+
+add_executable(generate_trajectory src/generate_trajectory.cpp)
+target_link_libraries(generate_trajectory ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+install(TARGETS generate_trajectory DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
